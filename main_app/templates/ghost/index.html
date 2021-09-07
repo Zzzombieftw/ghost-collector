@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/ghost-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Ghost List</h1>
+  
+</section>
+
+<section class="card-container">
+ {% for ghosts in ghost %}
+  {% comment %} <a href="{% url 'ghost_detail' ghosts.id %}">   {% endcomment %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/Dp.jpg' %}" 
+            alt="A Ghost"
+          >
+          
+        </div>
+        <h2 class="card-title">{{ ghost.name }}</h2>
+        
+        <p>{{ ghosts.description }}</p>
+      </div>
+    </div>
+  
+  </a>
+  {% endfor %}
+  
+</section>
+
+{% endblock %}
